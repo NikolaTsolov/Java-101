@@ -9,21 +9,21 @@ import java.io.BufferedWriter;
 import java.nio.file.Path;
 
 public class FileUtils {
-	
+#Done
 	private FileUtils() {
-		
+
 	}
-	
+
 	private static FileUtils mInstance;
-	
+
 	public static FileUtils getInstance() {
 		if(mInstance == null) {
 			mInstance = new FileUtils();
 		}
-		
+
 		return mInstance;
 	}
-	
+
 	public String readFrom(File file) throws IOException {
 		BufferedReader br = null;
 		StringBuilder str = new StringBuilder();
@@ -38,23 +38,23 @@ public class FileUtils {
 		finally {
 			br.close();
 		}
-		
+
 		return str.toString();
 	}
-	
+
 	String readFrom(Path path) throws IOException {
 		return readFrom(path.toFile());
 	}
-	
+
 	public void writeTo(File file, String contents) throws IOException {
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
 			bw.write(contents);
 		}
 	}
-	
+
 	public void writeTo(Path path, String contents) throws IOException {
 		writeTo(path.toFile(), contents);
 	}
-	
+
 
 }
