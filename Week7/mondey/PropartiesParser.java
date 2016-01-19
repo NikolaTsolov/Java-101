@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class PropartiesParser {
-	
+
+	/* Just a simple comment */
 	private static File file;
 
 	public static Map<String, String> parseProperties() throws IOException {
