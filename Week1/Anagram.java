@@ -1,28 +1,10 @@
-package week_1;
+package wednesday_friday;
 
 public class Anagram  {
-	
-	public static String toLowLetters(String input) {
-		StringBuilder new_str = new StringBuilder();
-
-		for (int i = 0; i < input.length(); i++) {
-
-			if (input.charAt(i) >= 'A' && input.charAt(i) <= 'Z') {
-				char num = (char) (input.charAt(i) + 32);
-				new_str.append(num + "");
-
-			} else {
-				new_str.append(input.charAt(i));
-			}
-		}
-
-		return new_str.toString();
-	}
 
 	public static String spliter(String input) {
 		String[] arr = input.split(" ");
 		StringBuilder temp = new StringBuilder();
-
 		for (int i = 0; i < arr.length; i++) {
 			temp.append(arr[i]);
 		}
@@ -30,20 +12,24 @@ public class Anagram  {
 		return temp.toString();
 	}
 	
-	public static boolean isAnagram(StringBuilder str_a, StringBuilder str_b) {
+	public static boolean isAnagram(String str_a, String str_b) {
 		int i = 0;
+		StringBuilder firstSentance = new StringBuilder();
+		StringBuilder secondSentance = new StringBuilder();
+		firstSentance.append(str_a);
+		secondSentance.append(str_b);
 		
-		while (str_a.length() != 0 && i < str_b.length()) {
-			if (str_a.toString().charAt(0) == str_b.toString().charAt(i)) {
-				str_a.deleteCharAt(0);
-				str_b.deleteCharAt(i);
+		while (firstSentance.length() != 0 && i < secondSentance.length()) {
+			if (firstSentance.toString().charAt(0) == secondSentance.toString().charAt(i)) {
+				firstSentance.deleteCharAt(0);
+				secondSentance.deleteCharAt(i);
 				i = -1;
 			}
 			
 			i++;
 		}
 
-		if(str_a.length() == 0) {
+		if(firstSentance.length() == 0) {
 			return true;
 		}
 		
@@ -53,17 +39,15 @@ public class Anagram  {
 
 
 	public static boolean anagram(String A, String B) {
-		StringBuilder str_a = new StringBuilder();
-		StringBuilder str_b = new StringBuilder();
 		
-		str_a.append(spliter(toLowLetters(A)));
-		str_b.append(spliter(toLowLetters(B)));
+		String firstSentance = spliter(A.toLowerCase());
+		String secondSentance = spliter(B.toLowerCase());
 		
-		if (str_a.length() != str_b.length()) {
+		if (firstSentance.length() != secondSentance.length()) {
 			return false;
 		}
 		
-		return isAnagram(str_a, str_b);
+		return isAnagram(firstSentance, secondSentance);
 	}
 
 	public static void main(String[] args) {

@@ -1,21 +1,18 @@
-package week_1;
+package wednesday_friday;
 
 public class HasAnagramOf extends Anagram{
 	
 
 	
-	public static boolean hasAnagramOF(String A, String B) {
-		StringBuilder str_a = new StringBuilder();
-		StringBuilder str_b = new StringBuilder();
+	public static boolean hasAnagramOF(String A, String B) {		
+		String firstSentance = spliter(A.toLowerCase());
+		String secondSentance = spliter(B.toLowerCase());
 		
-		str_a.append(spliter(toLowLetters(A)));
-		str_b.append(spliter(toLowLetters(B)));
-		
-		if (str_a.length() > str_b.length()) {
+		if (firstSentance.length() > secondSentance.length()) {
 			return false;
 		}
 		
-		return isAnagram(str_a, str_b);
+		return isAnagram(firstSentance, secondSentance);
 		
 
 	}
