@@ -1,0 +1,37 @@
+package wednesday;
+
+public class Pixel {
+	private float R;
+	private float G;
+	private float B;
+	
+	public Pixel(float R, float G, float B) {
+		this.R = R;
+		this.G = G;
+		this.B = B;
+	}
+	
+	public float getR() {
+		return R;
+	}
+	
+	public float getG() {
+		return G;
+	}
+	
+	public float getB() {
+		return B;
+	}
+	
+	public void setR(float R) {
+		this.R = R;
+	}
+	
+	public void setG(float G) {
+		this.G = G;
+	}
+	
+	public void setB(float B) {
+		this.B = B;
+	}
+}
